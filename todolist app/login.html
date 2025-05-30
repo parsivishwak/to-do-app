@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - TODO App</title>
+  <link rel="stylesheet" href="login.css" />
+</head>
+<body>
+
+    <form id="login-form" class="login-form">
+      <h2>Login</h2>
+      <input type="text" name="name" placeholder="Enter your name" required />
+      <input type="email" name="email" placeholder="Enter your email" required />
+      <button type="submit">Login</button>
+      <a href="https://accounts.google.com/signin/v2/usernamerecovery" class="forgot">Forgot your email?</a>
+    </form>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js"></script>
+  <script>
+    (function() {
+      emailjs.init('0U707Rv-MwEvPXY_n'); // Your public key
+    })();
+
+    document.getElementById('login-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      emailjs.sendForm('serviceID', 'template_81wft4l', this)
+        .then(function(response) {
+          alert("✅ Login notification sent!");
+        }, function(error) {
+          alert("❌ Failed to send email: " + error.text);
+        });
+    });
+  </script>
+
+</body>
+</html>
