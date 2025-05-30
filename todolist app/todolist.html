@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo</title>
+    <link rel="stylesheet" href="todolist.css">
+</head>
+<body>
+<header>
+  <div class="logo">TODO</div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="login.html">Login</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
+
+<div class="task-container">
+  <h1>We Help You Managing Your Tasks</h1>
+</div>
+
+
+</body>
+<script>
+  const header = document.querySelector('header');
+
+  header.addEventListener('mousemove', (e) => {
+    const rect = header.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100 + '%';
+    const y = ((e.clientY - rect.top) / rect.height) * 100 + '%';
+    header.style.setProperty('--mouse-x', x);
+    header.style.setProperty('--mouse-y', y);
+  });
+</script>
+
+</html>
